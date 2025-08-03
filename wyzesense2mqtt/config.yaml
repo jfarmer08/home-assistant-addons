@@ -10,7 +10,7 @@ startup: application
 boot: auto
 devices:
   - /dev/hidraw0
-image: raetha/wyzesense2mqtt:latest
+image: raetha/wyzesense2mqtt
 options:
   mqtt_host: mqtt://core-mosquitto
   mqtt_port: 1883
@@ -41,4 +41,5 @@ schema:
   hass_discovery: bool
   publish_sensor_name: bool
   usb_dongle: str
+
 

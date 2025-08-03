@@ -1,5 +1,5 @@
 name: Wyzesense2MQTT
-version: "1.0.24"
+version: "1.0.25"
 slug: wyzesense2mqtt
 description: Wyzesense2mqtt integration using raetha Docker image
 arch:
@@ -10,7 +10,7 @@ startup: application
 boot: auto
 devices:
   - /dev/hidraw0
-image: raetha/wyzesense2mqtt:devel
+image: raetha/wyzesense2mqtt:latest
 options:
   mqtt_host: mqtt://core-mosquitto
   mqtt_port: 1883
@@ -41,3 +41,4 @@ schema:
   hass_discovery: bool
   publish_sensor_name: bool
   usb_dongle: str
+

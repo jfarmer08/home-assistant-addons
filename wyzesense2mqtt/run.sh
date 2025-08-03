@@ -4,20 +4,20 @@ set -e
 
 # Write config.yaml for wyzesense2mqtt
 cat <<EOF > /app/config/config.yaml
-mqtt_host: "${mqtt_host}"
-mqtt_port: ${mqtt_port}
-mqtt_username: "${mqtt_username}"
-mqtt_password: "${mqtt_password}"
-mqtt_client_id: "${mqtt_client_id}"
-mqtt_clean_session: ${mqtt_clean_session}
-mqtt_keepalive: ${mqtt_keepalive}
-mqtt_qos: ${mqtt_qos}
-mqtt_retain: ${mqtt_retain}
-self_topic_root: "${self_topic_root}"
-hass_topic_root: "${hass_topic_root}"
-hass_discovery: ${hass_discovery}
-publish_sensor_name: ${publish_sensor_name}
-usb_dongle: "${usb_dongle}"
+mqtt_host: "${MQTT_HOST}"
+mqtt_port: ${MQTT_PORT}
+mqtt_username: "${MQTT_USERNAME}"
+mqtt_password: "${MQTT_PASSWORD}"
+mqtt_client_id: "${MQTT_CLIENT_ID}"
+mqtt_clean_session: ${MQTT_CLEAN_SESSION}
+mqtt_keepalive: ${MQTT_KEEPALIVE}
+mqtt_qos: ${MQTT_QOS}
+mqtt_retain: ${MQTT_RETAIN}
+self_topic_root: "${SELF_TOPIC_ROOT}"
+hass_topic_root: "${HASS_TOPIC_ROOT}"
+hass_discovery: ${HASS_DISCOVERY}
+publish_sensor_name: ${PUBLISH_SENSOR_NAME}
+usb_dongle: "${USB_DONGLE}"
 EOF
 
 # Write sensors_config to config/sensors.yaml if provided

@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 
-# Export all config options as environment variables
+# Export environment variables from Home Assistant config
 export MQTT_HOST=$(bashio::config 'mqtt_host')
 export MQTT_PORT=$(bashio::config 'mqtt_port')
 export MQTT_USERNAME=$(bashio::config 'mqtt_username')
@@ -16,5 +16,7 @@ export HASS_DISCOVERY=$(bashio::config 'hass_discovery')
 export PUBLISH_SENSOR_NAME=$(bashio::config 'publish_sensor_name')
 export USB_DONGLE=$(bashio::config 'usb_dongle')
 
-echo "[INFO] Starting WyzeSense2MQTT with the following MQTT broker: $MQTT_HOST:$MQTT_PORT"
-python3 /app/wyzesense2mqtt/__main__.py
+echo "[INFO] Starting WyzeSense2MQTT with MQTT broker: $MQTT_HOST:$MQTT_PORT"
+
+# Run the python app in foreground
+exec python3 /app/wyzesense2mqtt/__main__.py

@@ -1,15 +1,15 @@
-# Use Home Assistant base image
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
+ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install bash (if needed)
-RUN apk add --no-cache bash
+# Add S6 overlay
+ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=CONTINUE
 
-# Copy the run script
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+# Copy your service files
+COPY run.sh /etc/services.d/wyzesense2mqtt/run
+RUN chmod +x /etc/services.d/wyzesense2mqtt/run
 
-# Copy any other files you need here if necessary
+# Copy config files or binaries as needed
+# COPY mybinary /usr/bin/
 
-# Run the run.sh script on container start
-CMD [ "/run.sh" ]
+# Final ENTRYPOINT
+ENTRYPOINT [ "/init" ]

@@ -1,9 +1,8 @@
 {
   "name": "WyzeSense2MQTT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "slug": "wyzesense2mqtt",
   "description": "WyzeSense to MQTT bridge using raetha/wyzesense2mqtt",
-  "url": "https://github.com/jfarmer08/home-assistant-addons",
   "arch": ["amd64", "armv7", "aarch64"],
   "startup": "services",
   "boot": "auto",
@@ -19,10 +18,10 @@
     "mqtt_username": "str?",
     "mqtt_password": "str?"
   },
-  "devices": ["/dev/hidraw0"],
+  "devices": [
+    "/dev/hidraw0"
+  ],
   "udev": true,
   "usb": true,
-  "hassio_api": false,
-  "hassio_role": "default",
   "host_network": true
 }

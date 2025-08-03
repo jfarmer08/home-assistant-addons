@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-# Collect options from add-on config
-MQTT_HOST=${MQTT_HOST:-$(bashio::config 'mqtt_host')}
-MQTT_PORT=${MQTT_PORT:-$(bashio::config 'mqtt_port')}
-MQTT_USERNAME=$(bashio::config 'mqtt_username')
-MQTT_PASSWORD=$(bashio::config 'mqtt_password')
+echo "Starting WyzeSense2MQTT with MQTT broker $MQTT_HOST:$MQTT_PORT"
 
-# Optional logging
-echo "[INFO] Starting WyzeSense2MQTT with:"
-echo "[INFO]   MQTT Host: $MQTT_HOST"
-echo "[INFO]   MQTT Port: $MQTT_PORT"
-echo "[INFO]   MQTT User: $MQTT_USERNAME"
+# Build MQTT authentication options if username/password provided
+mqtt_auth=""
+if [ -n "$MQTT_USERNAME" ] && [ -n "$MQTT_PASSWORD" ]; then
+  mqtt_auth="--mqtt-username $MQTT_USERNAME --mqtt-password $MQTT_PASSWORD"
+fi
 
-exec /app/run.sh
+exec /wyzesense2mqtt \
+  --mqtt-host "$MQTT_HOST" \
+  --mqtt-port "$MQTT_PORT" \
+  $mqtt_auth

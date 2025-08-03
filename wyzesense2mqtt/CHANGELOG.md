@@ -1,0 +1,1 @@
+Vist https://github.com/raetha/wyzesense2mqtt/releases

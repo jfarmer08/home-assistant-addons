@@ -1,61 +1,17 @@
-{
-  "name": "Wyzesense2MQTT",
-  "version": "1.0.18",
-  "slug": "wyzesense2mqtt",
-  "description": "Wyzesense2mqtt integration using raetha Docker image",
-  "arch": ["amd64", "armv7", "aarch64"],
-  "startup": "application",
-  "boot": "auto",
-  "build": "dockerfile",
-  "devices": [
-    "/dev/hidraw0"
-  ],
-  "options": {
-    "mqtt_host": "mqtt://core-mosquitto",
-    "mqtt_port": 1883,
-    "mqtt_username": "",
-    "mqtt_password": "",
-    "mqtt_client_id": "wyzesense2mqtt",
-    "mqtt_clean_session": false,
-    "mqtt_keepalive": 60,
-    "mqtt_qos": 2,
-    "mqtt_retain": true,
-    "self_topic_root": "wyzesense2mqtt",
-    "hass_topic_root": "homeassistant",
-    "hass_discovery": true,
-    "publish_sensor_name": true,
-    "usb_dongle": "auto"
-  },
-  "schema": {
-    "mqtt_host": "str",
-    "mqtt_port": "int",
-    "mqtt_username": "str",
-    "mqtt_password": "str",
-    "mqtt_client_id": "str",
-    "mqtt_clean_session": "bool",
-    "mqtt_keepalive": "int",
-    "mqtt_qos": "int",
-    "mqtt_retain": "bool",
-    "self_topic_root": "str",
-    "hass_topic_root": "str",
-    "hass_discovery": "bool",
-    "publish_sensor_name": "bool",
-    "usb_dongle": "str"
-  },
-  "env": {
-    "MQTT_HOST": "mqtt_host",
-    "MQTT_PORT": "mqtt_port",
-    "MQTT_USERNAME": "mqtt_username",
-    "MQTT_PASSWORD": "mqtt_password",
-    "MQTT_CLIENT_ID": "mqtt_client_id",
-    "MQTT_CLEAN_SESSION": "mqtt_clean_session",
-    "MQTT_KEEPALIVE": "mqtt_keepalive",
-    "MQTT_QOS": "mqtt_qos",
-    "MQTT_RETAIN": "mqtt_retain",
-    "SELF_TOPIC_ROOT": "self_topic_root",
-    "HASS_TOPIC_ROOT": "hass_topic_root",
-    "HASS_DISCOVERY": "hass_discovery",
-    "PUBLISH_SENSOR_NAME": "publish_sensor_name",
-    "USB_DONGLE": "usb_dongle"
-  }
-}
+name: WyzeSense2MQTT
+version: "0.1.0"
+slug: wyzesense2mqtt
+description: Wyze Sense to MQTT gateway with MQTT discovery for Home Assistant
+url: https://github.com/raetha/wyzesense2mqtt
+startup: application
+boot: auto
+arch:
+  - amd64
+  - aarch64
+  - armv7
+host_network: true
+devices:
+  - /dev/hidraw0
+options: {}
+schema: {}
+image: "ghcr.io/raetha/wyzesense2mqtt:latest"

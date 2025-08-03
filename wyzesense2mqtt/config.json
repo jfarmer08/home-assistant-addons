@@ -4,7 +4,7 @@
   "slug": "wyzesense2mqtt",
   "description": "WyzeSense to MQTT bridge using raetha/wyzesense2mqtt",
   "arch": ["amd64", "armv7", "aarch64"],
-  "startup": "docker",
+  "startup": "services",
   "boot": "auto",
   "docker_image": "raetha/wyzesense2mqtt:devel",
   "options": {

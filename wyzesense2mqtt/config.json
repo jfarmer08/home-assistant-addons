@@ -38,7 +38,5 @@
     "publish_sensor_name": "bool",
     "usb_dongle": "str"
   },
-  "privileged": ["usb"],
-  "devices": ["/dev/hidraw0"],
-  "usb": true
+  "devices": ["/dev/hidraw0"]
 }

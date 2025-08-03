@@ -26,4 +26,10 @@ if [ -n "$SENSORS_CONFIG" ]; then
   echo "$SENSORS_CONFIG" > /app/config/sensors.yaml
 fi
 
+# Debug: print config files before starting service
+echo "==== /app/config/config.yaml ===="
+cat /app/config/config.yaml
+echo "==== /app/config/sensors.yaml ===="
+cat /app/config/sensors.yaml 2>/dev/null || echo "(no sensors.yaml)"
+
 exec python3 /app/wyzesense2mqtt.py

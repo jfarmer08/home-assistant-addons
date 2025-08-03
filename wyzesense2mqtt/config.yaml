@@ -2,8 +2,6 @@ arch:
 - aarch64
 - amd64
 - armv7
-backup_exclude:
-- node_modules
 description: Configurable WyzeSense to MQTT Gateway for Home Assistant
 host_network: true
 image: raetha/wyzesense2mqtt:devel

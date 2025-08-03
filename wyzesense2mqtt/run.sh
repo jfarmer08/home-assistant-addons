@@ -1,5 +1,10 @@
+
 #!/usr/bin/env bash
 set -e
+
+echo "Starting Wyzesense2MQTT run.sh"
+echo "Environment variables:"
+env
 
 
 # Write config.yaml for wyzesense2mqtt

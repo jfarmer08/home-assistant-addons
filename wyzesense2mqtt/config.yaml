@@ -13,10 +13,10 @@ devices:
 map:
   - path: /app/config
     read_only: false
-    type: addon_config
+    type: config
   - path: /app/logs
     read_only: false
-    type: addon_logs
+    type: log
 options:
   mqtt_host: 192.168.1.247
   mqtt_port: 1883

@@ -27,10 +27,10 @@ environment:
   PUBLISH_SENSOR_NAME: "true"
   USB_DONGLE: "auto"
 options:
-  mqtt_host: core-mosquitto
+  mqtt_host: 192.168.1.247
   mqtt_port: 1883
-  mqtt_username: ""
-  mqtt_password: ""
+  mqtt_username: "mqtt"
+  mqtt_password: "mqtt"
   mqtt_client_id: wyzesense2mqtt
   mqtt_clean_session: false
   mqtt_keepalive: 60

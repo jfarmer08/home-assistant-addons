@@ -3,5 +3,5 @@ set -e
 
 echo "Starting Wyzesense2MQTT addon..."
 
-# Exec the original container command (replace shell with it)
-exec wyzesense2mqtt
+# Start the WyzeSense2MQTT service using Python
+exec python3 /wyzesense2mqtt/wyzesense2mqtt.py

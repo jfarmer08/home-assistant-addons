@@ -1,0 +1,45 @@
+name: Wyzesense2MQTT
+version: "devel"
+slug: wyzesense2mqtt
+description: Wyzesense2mqtt integration using raetha Docker image
+arch:
+  - amd64
+  - armv7
+  - aarch64
+startup: application
+boot: auto
+devices:
+  - /dev/hidraw0
+image: raetha/wyzesense2mqtt
+options:
+  mqtt_host: 192.168.1.247
+  mqtt_port: 1883
+  mqtt_username: "mqtt"
+  mqtt_password: "mqtt"
+  mqtt_client_id: wyzesense2mqtt
+  mqtt_clean_session: false
+  mqtt_keepalive: 60
+  mqtt_qos: 2
+  mqtt_retain: true
+  self_topic_root: wyzesense2mqtt
+  hass_topic_root: homeassistant
+  hass_discovery: true
+  publish_sensor_name: true
+  usb_dongle: auto
+  sensors_config: ""
+schema:
+  mqtt_host: str
+  mqtt_port: int
+  mqtt_username: str
+  mqtt_password: str
+  mqtt_client_id: str
+  mqtt_clean_session: bool
+  mqtt_keepalive: int
+  mqtt_qos: int
+  mqtt_retain: bool
+  self_topic_root: str
+  hass_topic_root: str
+  hass_discovery: bool
+  publish_sensor_name: bool
+  usb_dongle: str
+  sensors_config: str

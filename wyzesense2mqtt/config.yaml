@@ -12,10 +12,10 @@ devices:
   - /dev/hidraw0
 image: raetha/wyzesense2mqtt
 environment:
-  MQTT_HOST: "core-mosquitto"
+  MQTT_HOST: "192.168.1.247"
   MQTT_PORT: "1883"
-  MQTT_USERNAME: ""
-  MQTT_PASSWORD: ""
+  MQTT_USERNAME: "mqtt"
+  MQTT_PASSWORD: "mqtt"
   MQTT_CLIENT_ID: "wyzesense2mqtt"
   MQTT_CLEAN_SESSION: "false"
   MQTT_KEEPALIVE: "60"

@@ -3,6 +3,7 @@ set -e
 
 
 # Write config.yaml for wyzesense2mqtt
+mkdir -p /app/config
 cat <<EOF > /app/config/config.yaml
 mqtt_host: "${MQTT_HOST}"
 mqtt_port: ${MQTT_PORT}

@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
 set -e
 
-# Export environment variables from Home Assistant options
-export MQTT_HOST="${MQTT_HOST:-$mqtt_host}"
-export MQTT_PORT="${MQTT_PORT:-$mqtt_port}"
-export MQTT_USERNAME="${MQTT_USERNAME:-$mqtt_username}"
-export MQTT_PASSWORD="${MQTT_PASSWORD:-$mqtt_password}"
-export MQTT_CLIENT_ID="${MQTT_CLIENT_ID:-$mqtt_client_id}"
-export MQTT_CLEAN_SESSION="${MQTT_CLEAN_SESSION:-$mqtt_clean_session}"
-export MQTT_KEEPALIVE="${MQTT_KEEPALIVE:-$mqtt_keepalive}"
-export MQTT_QOS="${MQTT_QOS:-$mqtt_qos}"
-export MQTT_RETAIN="${MQTT_RETAIN:-$mqtt_retain}"
-export SELF_TOPIC_ROOT="${SELF_TOPIC_ROOT:-$self_topic_root}"
-export HASS_TOPIC_ROOT="${HASS_TOPIC_ROOT:-$hass_topic_root}"
-export HASS_DISCOVERY="${HASS_DISCOVERY:-$hass_discovery}"
-export PUBLISH_SENSOR_NAME="${PUBLISH_SENSOR_NAME:-$publish_sensor_name}"
-export USB_DONGLE="${USB_DONGLE:-$usb_dongle}"
 
-# Start the main process
+# Write config.yaml for wyzesense2mqtt
+cat <<EOF > /app/config/config.yaml
+mqtt_host: "${mqtt_host}"
+mqtt_port: ${mqtt_port}
+mqtt_username: "${mqtt_username}"
+mqtt_password: "${mqtt_password}"
+mqtt_client_id: "${mqtt_client_id}"
+mqtt_clean_session: ${mqtt_clean_session}
+mqtt_keepalive: ${mqtt_keepalive}
+mqtt_qos: ${mqtt_qos}
+mqtt_retain: ${mqtt_retain}
+self_topic_root: "${self_topic_root}"
+hass_topic_root: "${hass_topic_root}"
+hass_discovery: ${hass_discovery}
+publish_sensor_name: ${publish_sensor_name}
+usb_dongle: "${usb_dongle}"
+EOF
 
 # Write sensors_config to config/sensors.yaml if provided
 if [ -n "$SENSORS_CONFIG" ]; then
@@ -25,4 +26,3 @@ if [ -n "$SENSORS_CONFIG" ]; then
 fi
 
 exec python3 /app/wyzesense2mqtt.py
-echo "Starting Wyzesense2MQTT addon..."

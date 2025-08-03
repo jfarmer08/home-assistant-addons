@@ -1,6 +1,6 @@
 {
   "name": "Wyzesense2MQTT",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "slug": "wyzesense2mqtt",
   "description": "Wyzesense2mqtt integration using raetha Docker image",
   "arch": ["amd64", "armv7", "aarch64"],

@@ -1,15 +1,17 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
-# Add S6 overlay
-ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=CONTINUE
+# Install dependencies
+RUN apk add --no-cache python3 py3-pip git libusb
 
-# Copy your service files
-COPY run.sh /etc/services.d/wyzesense2mqtt/run
-RUN chmod +x /etc/services.d/wyzesense2mqtt/run
+# Copy source and install it
+WORKDIR /app
+RUN git clone https://github.com/raetha/wyzesense2mqtt.git /app
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy config files or binaries as needed
-# COPY mybinary /usr/bin/
+# Copy run script
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
 
-# Final ENTRYPOINT
-ENTRYPOINT [ "/init" ]
+# Start script
+CMD [ "/run.sh" ]

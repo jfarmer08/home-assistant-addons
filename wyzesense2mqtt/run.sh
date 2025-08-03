@@ -1,19 +1,20 @@
-#!/usr/bin/env bash
-set -e
+#!/usr/bin/with-contenv bashio
 
-# Run the wyzesense2mqtt app with passed environment variables
-exec /wyzesense2mqtt \
-  --mqtt-host "${MQTT_HOST}" \
-  --mqtt-port "${MQTT_PORT}" \
-  --mqtt-username "${MQTT_USERNAME}" \
-  --mqtt-password "${MQTT_PASSWORD}" \
-  --mqtt-client-id "${MQTT_CLIENT_ID}" \
-  --mqtt-clean-session "${MQTT_CLEAN_SESSION}" \
-  --mqtt-keepalive "${MQTT_KEEPALIVE}" \
-  --mqtt-qos "${MQTT_QOS}" \
-  --mqtt-retain "${MQTT_RETAIN}" \
-  --self-topic-root "${SELF_TOPIC_ROOT}" \
-  --hass-topic-root "${HASS_TOPIC_ROOT}" \
-  --hass-discovery "${HASS_DISCOVERY}" \
-  --publish-sensor-name "${PUBLISH_SENSOR_NAME}" \
-  --usb-dongle "${USB_DONGLE}"
+# Export all config options as environment variables
+export MQTT_HOST=$(bashio::config 'mqtt_host')
+export MQTT_PORT=$(bashio::config 'mqtt_port')
+export MQTT_USERNAME=$(bashio::config 'mqtt_username')
+export MQTT_PASSWORD=$(bashio::config 'mqtt_password')
+export MQTT_CLIENT_ID=$(bashio::config 'mqtt_client_id')
+export MQTT_CLEAN_SESSION=$(bashio::config 'mqtt_clean_session')
+export MQTT_KEEPALIVE=$(bashio::config 'mqtt_keepalive')
+export MQTT_QOS=$(bashio::config 'mqtt_qos')
+export MQTT_RETAIN=$(bashio::config 'mqtt_retain')
+export SELF_TOPIC_ROOT=$(bashio::config 'self_topic_root')
+export HASS_TOPIC_ROOT=$(bashio::config 'hass_topic_root')
+export HASS_DISCOVERY=$(bashio::config 'hass_discovery')
+export PUBLISH_SENSOR_NAME=$(bashio::config 'publish_sensor_name')
+export USB_DONGLE=$(bashio::config 'usb_dongle')
+
+echo "[INFO] Starting WyzeSense2MQTT with the following MQTT broker: $MQTT_HOST:$MQTT_PORT"
+python3 /app/wyzesense2mqtt/__main__.py

@@ -1,6 +1,6 @@
 {
   "name": "WyzeSense2MQTT",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "slug": "wyzesense2mqtt",
   "description": "Connect WyzeSense to MQTT for use in Home Assistant",
   "url": "https://github.com/raetha/wyzesense2mqtt",

@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 set -e
 
-# Export config options to environment variables for the app
+# Export config options to environment variables
 export MQTT_HOST=$(bashio::config 'mqtt_host')
 export MQTT_PORT=$(bashio::config 'mqtt_port')
 export MQTT_USERNAME=$(bashio::config 'mqtt_username')
@@ -19,5 +19,5 @@ export USB_DONGLE=$(bashio::config 'usb_dongle')
 
 echo "[INFO] Starting WyzeSense2MQTT..."
 
-# Run the original service.sh from the repo in foreground
-exec /app/service.sh
+# Activate virtual environment and run the Python app
+exec /venv/bin/python /app/wyzesense2mqtt/__main__.py

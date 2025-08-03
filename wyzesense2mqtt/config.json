@@ -1,42 +1,28 @@
 {
   "name": "WyzeSense2MQTT",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "slug": "wyzesense2mqtt",
-  "description": "WyzeSense to MQTT bridge using raetha/wyzesense2mqtt",
-  "arch": ["amd64", "armv7", "aarch64"],
+  "description": "Connect WyzeSense to MQTT for use in Home Assistant",
+  "url": "https://github.com/raetha/wyzesense2mqtt",
   "startup": "application",
   "boot": "auto",
+  "arch": ["amd64", "armhf", "armv7", "aarch64"],
+  "host_network": true,
+  "usb": true,
+  "devices": ["/dev/hidraw0"],
+  "map": ["config:rw"],
   "options": {
-    "mqtt_host": "localhost",
-    "mqtt_port": 1883,
-    "mqtt_username": "user",
-    "mqtt_password": "pass",
-    "mqtt_client_id": "wyzesense2mqtt",
-    "mqtt_clean_session": false,
-    "mqtt_keepalive": 60,
-    "mqtt_qos": 2,
-    "mqtt_retain": true,
-    "self_topic_root": "wyzesense2mqtt",
-    "hass_topic_root": "homeassistant",
-    "hass_discovery": true,
-    "publish_sensor_name": true,
-    "usb_dongle": "auto"
+    "mqtt": {
+      "host": "core-mosquitto",
+      "port": 1883,
+      "topic": "wyzesense"
+    }
   },
   "schema": {
-    "mqtt_host": "str",
-    "mqtt_port": "int",
-    "mqtt_username": "str",
-    "mqtt_password": "str",
-    "mqtt_client_id": "str",
-    "mqtt_clean_session": "bool",
-    "mqtt_keepalive": "int",
-    "mqtt_qos": "int",
-    "mqtt_retain": "bool",
-    "self_topic_root": "str",
-    "hass_topic_root": "str",
-    "hass_discovery": "bool",
-    "publish_sensor_name": "bool",
-    "usb_dongle": "str"
-  },
-  "devices": ["/dev/hidraw0"]
+    "mqtt": {
+      "host": "str",
+      "port": "int",
+      "topic": "str"
+    }
+  }
 }

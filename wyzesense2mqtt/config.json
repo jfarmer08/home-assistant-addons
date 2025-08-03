@@ -1,15 +1,12 @@
 {
   "name": "Wyzesense2MQTT",
-  "version": "1.0.2",
+  "version": "1.0.16",
   "slug": "wyzesense2mqtt",
   "description": "Wyzesense2mqtt integration using raetha Docker image",
   "arch": ["amd64", "armv7", "aarch64"],
   "startup": "application",
   "boot": "auto",
   "image": "raetha/wyzesense2mqtt:latest",
-  "ports": {
-    "65001/tcp": 65001
-  },
   "devices": [
     "/dev/hidraw0"
   ],

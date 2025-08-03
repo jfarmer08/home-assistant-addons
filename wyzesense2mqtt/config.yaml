@@ -12,20 +12,20 @@ devices:
   - /dev/hidraw0
 image: raetha/wyzesense2mqtt
 environment:
-  MQTT_HOST: core-mosquitto
-  MQTT_PORT: 1883
+  MQTT_HOST: "core-mosquitto"
+  MQTT_PORT: "1883"
   MQTT_USERNAME: ""
   MQTT_PASSWORD: ""
-  MQTT_CLIENT_ID: wyzesense2mqtt
-  MQTT_CLEAN_SESSION: false
-  MQTT_KEEPALIVE: 60
-  MQTT_QOS: 2
-  MQTT_RETAIN: true
-  SELF_TOPIC_ROOT: wyzesense2mqtt
-  HASS_TOPIC_ROOT: homeassistant
-  HASS_DISCOVERY: true
-  PUBLISH_SENSOR_NAME: true
-  USB_DONGLE: auto
+  MQTT_CLIENT_ID: "wyzesense2mqtt"
+  MQTT_CLEAN_SESSION: "false"
+  MQTT_KEEPALIVE: "60"
+  MQTT_QOS: "2"
+  MQTT_RETAIN: "true"
+  SELF_TOPIC_ROOT: "wyzesense2mqtt"
+  HASS_TOPIC_ROOT: "homeassistant"
+  HASS_DISCOVERY: "true"
+  PUBLISH_SENSOR_NAME: "true"
+  USB_DONGLE: "auto"
 options:
   mqtt_host: core-mosquitto
   mqtt_port: 1883

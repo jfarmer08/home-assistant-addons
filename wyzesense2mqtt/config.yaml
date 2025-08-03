@@ -11,21 +11,6 @@ boot: auto
 devices:
   - /dev/hidraw0
 image: raetha/wyzesense2mqtt
-environment:
-  MQTT_HOST: "192.168.1.247"
-  MQTT_PORT: "1883"
-  MQTT_USERNAME: "mqtt"
-  MQTT_PASSWORD: "mqtt"
-  MQTT_CLIENT_ID: "wyzesense2mqtt"
-  MQTT_CLEAN_SESSION: "false"
-  MQTT_KEEPALIVE: "60"
-  MQTT_QOS: "2"
-  MQTT_RETAIN: "true"
-  SELF_TOPIC_ROOT: "wyzesense2mqtt"
-  HASS_TOPIC_ROOT: "homeassistant"
-  HASS_DISCOVERY: "true"
-  PUBLISH_SENSOR_NAME: "true"
-  USB_DONGLE: "auto"
 options:
   mqtt_host: 192.168.1.247
   mqtt_port: 1883

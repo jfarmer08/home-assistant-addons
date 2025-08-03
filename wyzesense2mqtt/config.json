@@ -1,6 +1,6 @@
 {
   "name": "WyzeSense2MQTT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "slug": "wyzesense2mqtt",
   "description": "WyzeSense to MQTT bridge using raetha/wyzesense2mqtt",
   "url": "https://github.com/jfarmer08/home-assistant-addons",

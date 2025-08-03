@@ -1,10 +1,9 @@
 {
   "name": "Wyzesense2MQTT",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "slug": "wyzesense2mqtt",
   "description": "Wyzesense2mqtt integration using raetha Docker image",
   "arch": ["amd64", "armv7", "aarch64"],
-  "image": "raetha/wyzesense2mqtt:devel",
   "startup": "application",
   "boot": "auto",
   "devices": [

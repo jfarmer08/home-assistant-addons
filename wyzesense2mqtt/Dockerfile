@@ -4,16 +4,17 @@ FROM ${BUILD_FROM}
 # Install dependencies
 RUN apk add --no-cache python3 py3-pip git libusb
 
-# Clone the repo
-RUN git clone https://github.com/raetha/wyzesense2mqtt.git /app
-
-# Change into the app directory
+# Clone just the relevant directory
 WORKDIR /app
+RUN git clone https://github.com/raetha/wyzesense2mqtt.git .
 
-# Install Python requirements with workaround for Alpine's restrictions
+# Set working directory to where main code and requirements.txt exist
+WORKDIR /app/wyzesense2mqtt
+
+# Install Python requirements
 RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
 
-# Copy and set executable permissions on the run script
+# Copy run script (you can adjust this if your run.sh is different)
 COPY run.sh /
 RUN chmod +x /run.sh
 

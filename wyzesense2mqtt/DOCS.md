@@ -1,5 +1,7 @@
 ![Addon Logo](logo.png)
 
+[Visit the Wyze Sense 2 MQTT GitHub page for more details](https://github.com/raetha/wyzesense2mqtt)
+
 # WyzeSense2MQTT Addon Documentation
 
 ## Features

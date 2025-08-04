@@ -1,4 +1,4 @@
-![Addon Logo](wyzeSense2Mqtt.png)
+![Addon Logo](logo.png)
 
 # WyzeSense2MQTT Addon Documentation
 

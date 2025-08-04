@@ -49,7 +49,9 @@ EOF
 # Write sensors_config to config/sensors.yaml if provided
 if [ -n "$SENSORS_CONFIG" ] && [ "$SENSORS_CONFIG" != "null" ]; then
   # Convert inline YAML list to dict using jq and yq
-  echo "$SENSORS_CONFIG" | yq -o=json | jq 'map({(.mac): {name, type}}) | add' | yq -P > /app/config/sensors.yaml
+  # Supports extra attributes (e.g., humidity, temperature) in each sensor
+  # Example input: [{mac: "77C2A194", name: "Front Door", type: "door"}, {mac: "77D53275", name: "Garage Climate", type: "climate", humidity: true, temperature: true}]
+  echo "$SENSORS_CONFIG" | yq -o=json | jq 'map({(.mac): del(.mac)}) | add' | yq -P > /app/config/sensors.yaml
 fi
 
 # Write default logging.yaml if missing

@@ -1,3 +1,5 @@
+![Addon Logo](wyzeSense2Mqtt.png)
+
 # WyzeSense2MQTT Addon Documentation
 
 ## Features

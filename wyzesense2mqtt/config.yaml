@@ -1,7 +1,7 @@
-name: Wyzesense2MQTT
-version: "1.0.7"
+name: Wyze Sense 2 MQTT
+version: "1.0.9"
 slug: wyzesense2mqtt
-description: Wyzesense2mqtt integration using raetha Docker image
+description: Integrates Wyze Sense sensors with Home Assistant via MQTT, supporting sensor pairing, removal, climate data, and automatic device discovery using the raetha Docker image.
 arch:
   - amd64
   - armv7

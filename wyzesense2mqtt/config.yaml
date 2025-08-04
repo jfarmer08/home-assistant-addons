@@ -30,22 +30,48 @@ options:
   mqtt_retain: true
   hass_discovery: true
   publish_sensor_name: true
+  # UI groups for Home Assistant (supported in newer versions)
+  # Basic MQTT settings
+  # Advanced MQTT and sensor settings
+ui:
+  group:
+    - name: "MQTT Settings"
+      options:
+        - mqtt_host
+        - mqtt_username
+        - mqtt_password
+    - name: "Advanced MQTT"
+      options:
+        - mqtt_port
+        - mqtt_client_id
+        - mqtt_clean_session
+        - mqtt_keepalive
+        - mqtt_qos
+        - mqtt_retain
+        - self_topic_root
+        - hass_topic_root
+        - hass_discovery
+        - publish_sensor_name
+    - name: "Sensor Settings"
+      options:
+        - usb_dongle
+        - sensors_config
 schema:
   mqtt_host: str
   mqtt_username: str
   mqtt_password: str
-  mqtt_client_id: str@advanced
-  self_topic_root: str@advanced
-  hass_topic_root: str@advanced
-  usb_dongle: str@advanced
-  sensors_config: str@advanced
-  mqtt_port: int@advanced
-  mqtt_clean_session: bool@advanced
-  mqtt_keepalive: int@advanced
-  mqtt_qos: int@advanced
-  mqtt_retain: bool@advanced
-  hass_discovery: bool@advanced
-  publish_sensor_name: bool@advanced
+  mqtt_client_id: str
+  self_topic_root: str
+  hass_topic_root: str
+  usb_dongle: str
+  sensors_config: str
+  mqtt_port: int
+  mqtt_clean_session: bool
+  mqtt_keepalive: int
+  mqtt_qos: int
+  mqtt_retain: bool
+  hass_discovery: bool
+  publish_sensor_name: bool
 
 
 

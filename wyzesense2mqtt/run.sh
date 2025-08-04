@@ -90,4 +90,6 @@ cat /app/config/sensors.yaml 2>/dev/null || echo "(no sensors.yaml)"
 echo "==== /app/config/logging.yaml ===="
 cat /app/config/logging.yaml
 
+cd /app
+
 exec python3 /app/wyzesense2mqtt.py

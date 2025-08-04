@@ -1,5 +1,5 @@
 name: Wyzesense2MQTT
-version: "1.0.5"
+version: "1.0.6"
 slug: wyzesense2mqtt
 description: Wyzesense2mqtt integration using raetha Docker image
 arch:

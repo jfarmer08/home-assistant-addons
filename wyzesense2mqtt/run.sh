@@ -48,7 +48,8 @@ EOF
 
 # Write sensors_config to config/sensors.yaml if provided
 if [ -n "$SENSORS_CONFIG" ] && [ "$SENSORS_CONFIG" != "null" ]; then
-  echo "$SENSORS_CONFIG" > /app/config/sensors.yaml
+  # Convert inline YAML list to dict using jq and yq
+  echo "$SENSORS_CONFIG" | yq -o=json | jq 'map({(.mac): {name, type}}) | add' | yq -P > /app/config/sensors.yaml
 fi
 
 # Write default logging.yaml if missing

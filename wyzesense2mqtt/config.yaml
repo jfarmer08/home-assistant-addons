@@ -1,5 +1,5 @@
 name: Wyze Sense 2 MQTT
-version: "1.0.9"
+version: "1.0.10"
 slug: wyzesense2mqtt
 description: Integrates Wyze Sense sensors with Home Assistant via MQTT, supporting sensor pairing, removal, climate data, and automatic device discovery using the raetha Docker image.
 arch:
@@ -16,36 +16,36 @@ map:
     type: config
 options:
   mqtt_host: 
-  mqtt_port: 1883
   mqtt_username: ""
   mqtt_password: ""
   mqtt_client_id: wyzesense2mqtt
+  self_topic_root: wyzesense2mqtt
+  hass_topic_root: homeassistant
+  usb_dongle: auto
+  sensors_config: ""
+  mqtt_port: 1883
   mqtt_clean_session: false
   mqtt_keepalive: 60
   mqtt_qos: 2
   mqtt_retain: true
-  self_topic_root: wyzesense2mqtt
-  hass_topic_root: homeassistant
   hass_discovery: true
   publish_sensor_name: true
-  usb_dongle: auto
-  sensors_config: ""
 schema:
   mqtt_host: str
-  mqtt_port: int
   mqtt_username: str
   mqtt_password: str
-  mqtt_client_id: str
-  mqtt_clean_session: bool
-  mqtt_keepalive: int
-  mqtt_qos: int
-  mqtt_retain: bool
-  self_topic_root: str
-  hass_topic_root: str
-  hass_discovery: bool
-  publish_sensor_name: bool
-  usb_dongle: str
-  sensors_config: str
+  mqtt_client_id: str@advanced
+  self_topic_root: str@advanced
+  hass_topic_root: str@advanced
+  usb_dongle: str@advanced
+  sensors_config: str@advanced
+  mqtt_port: int@advanced
+  mqtt_clean_session: bool@advanced
+  mqtt_keepalive: int@advanced
+  mqtt_qos: int@advanced
+  mqtt_retain: bool@advanced
+  hass_discovery: bool@advanced
+  publish_sensor_name: bool@advanced
 
 
 

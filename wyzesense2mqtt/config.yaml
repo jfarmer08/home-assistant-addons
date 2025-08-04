@@ -1,5 +1,5 @@
 name: Wyzesense2MQTT
-version: "devel"
+version: "1.0.1"
 slug: wyzesense2mqtt
 description: Wyzesense2mqtt integration using raetha Docker image
 arch:
@@ -46,3 +46,4 @@ schema:
   publish_sensor_name: bool
   usb_dongle: str
   sensors_config: str
+

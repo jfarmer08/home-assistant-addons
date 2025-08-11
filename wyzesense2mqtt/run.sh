@@ -28,8 +28,8 @@ USB_DONGLE=$(get_option usb_dongle)
 SENSORS_CONFIG=$(get_option sensors_config)
 
 # Write config.yaml for wyzesense2mqtt
-mkdir -p /app/config/wyzesense2mqtt
-cat <<EOF > /app/config/wyzesense2mqtt/config.yaml
+mkdir -p /app/config
+cat <<EOF > /app/config/config.yaml
 mqtt_host: ${MQTT_HOST}
 mqtt_port: ${MQTT_PORT}
 mqtt_username: ${MQTT_USERNAME}
@@ -46,17 +46,17 @@ publish_sensor_name: ${PUBLISH_SENSOR_NAME}
 usb_dongle: ${USB_DONGLE}
 EOF
 
-# Write sensors_config to wyzesense2mqtt/sensors.yaml if provided
+# Write sensors_config to config/sensors.yaml if provided
 if [ -n "$SENSORS_CONFIG" ] && [ "$SENSORS_CONFIG" != "null" ]; then
   # Convert inline YAML list to dict using jq and yq
   # Supports extra attributes (e.g., humidity, temperature) in each sensor
   # Example input: [{mac: "77C2A194", name: "Front Door", type: "door"}, {mac: "77D53275", name: "Garage Climate", type: "climate", humidity: true, temperature: true}]
-  echo "$SENSORS_CONFIG" | yq -o=json | jq 'map({(.mac): del(.mac)}) | add' | yq -P > /app/config/wyzesense2mqtt/sensors.yaml
+  echo "$SENSORS_CONFIG" | yq -o=json | jq 'map({(.mac): del(.mac)}) | add' | yq -P > /app/config/sensors.yaml
 fi
 
 # Write default logging.yaml if missing
-if [ ! -f /app/config/wyzesense2mqtt/logging.yaml ]; then
-  cat <<EOL > /app/config/wyzesense2mqtt/logging.yaml
+if [ ! -f /app/config/logging.yaml ]; then
+  cat <<EOL > /app/config/logging.yaml
 version: 1
 formatters:
   simple:
@@ -73,7 +73,7 @@ handlers:
     backupCount: 7
     class: logging.handlers.TimedRotatingFileHandler
     encoding: utf-8
-  filename: logs/wyzesense2mqtt.log
+  filename: /app/logs/wyzesense2mqtt.log
     formatter: verbose
     level: INFO
     when: midnight
@@ -86,12 +86,12 @@ EOL
 fi
 
 # Debug: print config files before starting service
-echo "==== /app/config/wyzesense2mqtt/config.yaml ===="
-cat /app/config/wyzesense2mqtt/config.yaml
-echo "==== /app/config/wyzesense2mqtt/sensors.yaml ===="
-cat /app/config/wyzesense2mqtt/sensors.yaml 2>/dev/null || echo "(no sensors.yaml)"
-echo "==== /app/config/wyzesense2mqtt/logging.yaml ===="
-cat /app/config/wyzesense2mqtt/logging.yaml
+echo "==== /app/config/config.yaml ===="
+cat /app/config/config.yaml
+echo "==== /app/config/sensors.yaml ===="
+cat /app/config/sensors.yaml 2>/dev/null || echo "(no sensors.yaml)"
+echo "==== /app/config/logging.yaml ===="
+cat /app/config/logging.yaml
 
 cd /app
 

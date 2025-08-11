@@ -100,7 +100,9 @@ mkdir -p /data/wyzesense2mqtt/config
 mkdir -p /data/wyzesense2mqtt/logs
 
 # Optionally, symlink /app/config and /app/logs to /data/wyzesense2mqtt for compatibility
-rm -rf /app/config /app/logs
+# Remove /app/config and /app/logs if they are not symlinks, then create symlinks
+[ -L /app/config ] && unlink /app/config || rm -rf /app/config
+[ -L /app/logs ] && unlink /app/logs || rm -rf /app/logs
 ln -s /data/wyzesense2mqtt/config /app/config
 ln -s /data/wyzesense2mqtt/logs /app/logs
 

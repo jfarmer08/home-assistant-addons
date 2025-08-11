@@ -13,7 +13,7 @@ devices:
 map:
   - path: /wyzesense2mqtt
     read_only: false
-    type: config
+    type: addon_config
 options:
   mqtt_host: 
   mqtt_username: ""

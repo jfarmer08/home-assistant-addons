@@ -11,7 +11,7 @@ boot: auto
 devices:
   - /dev/hidraw0
 map:
-  - path: /app/config/wyzesense2mqtt
+  - path: /wyzesense2mqtt
     read_only: false
     type: config
 options:

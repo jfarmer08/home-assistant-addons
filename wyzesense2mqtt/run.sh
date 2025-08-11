@@ -95,4 +95,14 @@ cat /app/config/wyzesense2mqtt/logging.yaml
 
 cd /app
 
+# Ensure persistent folders exist in Home Assistant's /data directory
+mkdir -p /data/wyzesense2mqtt/config
+mkdir -p /data/wyzesense2mqtt/logs
+
+# Optionally, symlink /app/config and /app/logs to /data/wyzesense2mqtt for compatibility
+rm -rf /app/config /app/logs
+ln -s /data/wyzesense2mqtt/config /app/config
+ln -s /data/wyzesense2mqtt/logs /app/logs
+
+# Start the main service
 exec python3 /app/wyzesense2mqtt.py

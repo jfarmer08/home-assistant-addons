@@ -73,7 +73,7 @@ handlers:
     backupCount: 7
     class: logging.handlers.TimedRotatingFileHandler
     encoding: utf-8
-  filename: /app/logs/wyzesense2mqtt.log
+    filename: logs/wyzesense2mqtt.log
     formatter: verbose
     level: INFO
     when: midnight

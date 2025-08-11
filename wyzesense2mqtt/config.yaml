@@ -1,5 +1,5 @@
 name: Wyze Sense 2 MQTT
-version: "1.0.1"
+version: "1.0.2"
 slug: wyzesense2mqtt
 description: Integrates Wyze Sense sensors with Home Assistant via MQTT, supporting sensor pairing, removal, climate data, and automatic device discovery using the raetha Docker image.
 arch:
@@ -11,7 +11,7 @@ boot: auto
 devices:
   - /dev/hidraw0
 map:
-  - path: /app/config
+  - path: /app/config/wyzesense2mqtt
     read_only: false
     type: config
 options:
@@ -40,39 +40,8 @@ ui:
         - mqtt_host
         - mqtt_username
         - mqtt_password
-    - name: "Advanced MQTT"
-      options:
-        - mqtt_port
-        - mqtt_client_id
-        - mqtt_clean_session
-        - mqtt_keepalive
-        - mqtt_qos
-        - mqtt_retain
-        - self_topic_root
-        - hass_topic_root
-        - hass_discovery
-        - publish_sensor_name
-    - name: "Sensor Settings"
-      options:
-        - usb_dongle
-        - sensors_config
+
 schema:
   mqtt_host: str
   mqtt_username: str
   mqtt_password: str
-  mqtt_client_id: str
-  self_topic_root: str
-  hass_topic_root: str
-  usb_dongle: str
-  sensors_config: str
-  mqtt_port: int
-  mqtt_clean_session: bool
-  mqtt_keepalive: int
-  mqtt_qos: int
-  mqtt_retain: bool
-  hass_discovery: bool
-  publish_sensor_name: bool
-
-
-
-

@@ -1,17 +1,4 @@
 #!/bin/sh
-# set -e
-
-# Ensure /data exists and is writable
-if [ ! -d /data ]; then
-  mkdir -p /data
-fi
-touch /data/.write_test || (echo "ERROR: /data is not writable" && exit 1)
-rm -f /data/.write_test
-
-echo "Starting Wyzesense2MQTT run.sh"
-echo "Reading addon options from /data/options.json:"
-cat /data/options.json
-#!/bin/sh
 set -e
 
 echo "Starting Wyzesense2MQTT run.sh"
